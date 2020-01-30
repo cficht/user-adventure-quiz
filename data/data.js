@@ -1,7 +1,6 @@
 // const friend = {
 //     name: '',
 //     id: '',
-//     listimage: '',
 //     detailimage: '',
 //     description: '',
 //     choices: { send: {            
@@ -31,7 +30,6 @@
 const willy = {
     name: 'Uncle Willy',
     id: 'will',
-    listimage: '',
     detailimage: '',
     description: 'Your loving uncle. He has radical opinions about virtually everything and doesn\'t have the best reputation with the rest of your family.',
     choices: { send: {            
@@ -61,7 +59,6 @@ const willy = {
 const highschool = {
     name: 'Craig Thomberbottom',
     id: 'highschool',
-    listimage: '',
     detailimage: '',
     description: 'An acquaintance from high school. You used to go to the same parties. You might have had a conversation or two, but those years are kind of hazy.',
     choices: { send: {            
@@ -91,7 +88,6 @@ const highschool = {
 const ex = {
     name: 'Your Ex',
     id: 'ex',
-    listimage: '',
     detailimage: '',
     description: 'This is your ex. Things didn\'t end well.',
     choices: { send: {            
@@ -121,7 +117,6 @@ const ex = {
 const boss = {
     name: 'Ellen Ellerson',
     id: 'boss',
-    listimage: '',
     detailimage: '',
     description: 'Your boss. Gives you work. Gives you money. Respected and loved by all.',
     choices: { send: {            

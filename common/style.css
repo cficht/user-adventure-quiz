@@ -1,0 +1,35 @@
+header {
+    display: grid;
+    grid-template-columns: 20% auto;
+    border: 1px solid black;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+#header-left {
+    border: 1px solid black;
+}
+
+#header-right {
+    border: 1px solid black;
+    text-align: center;
+}
+
+#left {
+    border: 1px solid black;
+}
+
+#right {
+    border: 1px solid black;
+    height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+#form-container {
+    width: 20%;
+    margin: 0 auto;
+}
