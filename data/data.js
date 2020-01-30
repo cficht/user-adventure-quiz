@@ -1,32 +1,3 @@
-// const friend = {
-//     name: '',
-//     id: '',
-//     detailimage: '',
-//     description: '',
-//     choices: { send: {            
-//         id: 'send',
-//         description: '',
-//         result: '',
-//         resultimage: '',
-//         health: 0,
-//         money: 0
-//     }, like: {
-//         id: 'like',
-//         description: '',
-//         result: '',
-//         resultimage: '',
-//         health: 0,
-//         money: 0
-//     }, post: {
-//         id: 'post',
-//         description: '',
-//         result: '',
-//         resultimage: '',
-//         health: 0,
-//         money: 0
-//     } }
-// };
-
 const willy = {
     name: 'Uncle Willy',
     id: 'will',

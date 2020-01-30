@@ -1,5 +1,5 @@
 import friendArray from '../data/data.js';
-import { getUser, setUser } from '../data/storage.js';
+import { getUser } from '../data/storage.js';
 import { updateUserText } from '../common/utils.js';
 
 const friendList = document.getElementById('friend-list');

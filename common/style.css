@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 header {
     display: grid;
     grid-template-columns: 20% auto;
@@ -26,10 +30,36 @@ main {
     border: 1px solid black;
     height: 600px;
     display: flex;
-    align-items: center;
 }
 
 #form-container {
     width: 20%;
     margin: 0 auto;
+    position: relative;
+    top: 100px;
+}
+
+#friend-div {
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 50%;
+}
+
+#friend-info-div {
+    border: 1px solid black;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#friend-choice-div {
+    border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.choice-label {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
 }

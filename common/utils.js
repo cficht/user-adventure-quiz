@@ -27,3 +27,17 @@ export function updateUserText(user) {
     userFriendsText.textContent = `Friends: ${user.health}`;
     userLikesText.textContent = `Likes: ${user.money}`;
 }
+
+export function friendMatch(friends, friendId) {
+    let currentFriend;
+    friends.forEach((friend) => {
+        if (friend.id === friendId) {
+            currentFriend = friend;
+        }
+    });
+    if (!currentFriend) {
+        window.location.assign('../list');
+        return;
+    }
+    return currentFriend;
+}
