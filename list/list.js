@@ -1,5 +1,5 @@
 import friendArray from '../data/data.js';
-import { getUser } from '../data/storage.js';
+import { getUser, setUser } from '../data/storage.js';
 import { updateUserText } from '../common/utils.js';
 
 const friendList = document.getElementById('friend-list');
@@ -7,6 +7,7 @@ const pageTitle = document.getElementById('page-title');
 
 const user = getUser();
 const friends = friendArray;
+let friendCompleteCount = 0;
 
 updateUserText(user);
 
@@ -22,13 +23,15 @@ friends.forEach((friend) => {
     friendList.appendChild(friendLi);
 
     const friendComplete = user.completed[friend.id];
-
     if (friendComplete) {
         friendURL.classList.add('disabled');
         friendURL.style.color = 'red';
-        friendURL.style.under
-        // console.log(user.completed[friend.id], friend.id);
-
+        friendCompleteCount++;
     }
+    
 });
 
+setUser(user);
+
+if (user.health <= 0) user.health = 0;
+if (friendCompleteCount === 4 || user.health <= 0) window.location.assign('../results');

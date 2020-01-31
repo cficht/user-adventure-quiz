@@ -23,11 +23,9 @@ friendNameText.textContent = currentFriend.name;
 friendDescText.textContent = currentFriend.description;
 
 generateChoices(friendChoiceArray, friendChoiceForm);
-
 const choicesSubmitButton = document.createElement('input');
 choicesSubmitButton.type = 'submit';
 friendChoiceForm.appendChild(choicesSubmitButton);
-
 
 function generateChoices(friendChoiceArray, friendChoiceForm) {
     friendChoiceArray.forEach((choice) => {
