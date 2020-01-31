@@ -4,6 +4,7 @@ import { updateUserText, friendMatch } from '../common/utils.js';
 
 const pageTitle = document.getElementById('page-title');
 const friendNameText = document.getElementById('friend-name-text');
+const friendImage = document.getElementById('friend-image');
 const friendDescText = document.getElementById('friend-description-text');
 const friendChoiceForm = document.getElementById('friend-choice-form');
 
@@ -20,6 +21,7 @@ const friendChoiceArray = Object.values(currentFriend.choices);
 
 pageTitle.textContent = `Facestagrammer: ${currentFriend.name}`;
 friendNameText.textContent = currentFriend.name;
+friendImage.src = `../assets/${currentFriend.detailimage}`;
 friendDescText.textContent = currentFriend.description;
 
 generateChoices(friendChoiceArray, friendChoiceForm);
@@ -41,7 +43,7 @@ function generateChoices(friendChoiceArray, friendChoiceForm) {
     });    
 }
 
-choicesSubmitButton.addEventListener('click', (e) => {
+friendChoiceForm.addEventListener('submit', (e) => {
 
     e.preventDefault();
 
@@ -50,6 +52,7 @@ choicesSubmitButton.addEventListener('click', (e) => {
     const userChoice = currentFriend.choices[userChoiceId];
     
     friendChoiceForm.style.display = 'none';
+    friendImage.src = `../assets/${userChoice.resultimage}`;
     friendDescText.textContent = userChoice.result;
     user.health += userChoice.health;
     user.money += userChoice.money;

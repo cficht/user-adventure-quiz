@@ -25,9 +25,14 @@ if (user.health > 0 && user.money >= 40) {
 
 const resultsTitle = document.createElement('h2');
 resultsTitle.textContent = theEnding.title;
+const gameoverImage = document.createElement('img');
+gameoverImage.src = `../assets/${theEnding.image}`;
+gameoverImage.id = 'gameover-image';
+
 const resultsDescription = document.createElement('p');
 resultsDescription.textContent = theEnding.description;
 resultsDiv.appendChild(resultsTitle);
+resultsDiv.appendChild(gameoverImage);
 resultsDiv.appendChild(resultsDescription);
 
 restartButton.addEventListener('click', () => {

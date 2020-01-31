@@ -26,6 +26,16 @@ main {
     border: 1px solid black;
 }
 
+#left h2 {
+    text-align: left;
+    padding-inline-start: 20px;
+}
+
+#left ul {
+    list-style-type: none;
+    padding-inline-start: 20px;
+}
+
 #right {
     border: 1px solid black;
     height: 600px;
@@ -45,11 +55,15 @@ main {
     width: 50%;
 }
 
-#friend-info-div {
+#main-info-div {
     border: 1px solid black;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+#friend-image {
+    height: 200px;
 }
 
 #friend-choice-div {
@@ -74,9 +88,12 @@ a.disabled {
     border: 1px solid black;
     text-align: center;
     margin: 0 auto;
-    height: 300px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+#gameover-image {
+    height: 200px;
 }
 
 #restart-button {

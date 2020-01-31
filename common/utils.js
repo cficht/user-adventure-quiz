@@ -13,7 +13,6 @@ export function userStore(userForm) {
             boss: false
         }
     };
-
     return userObject;
 }
 
@@ -41,3 +40,4 @@ export function friendMatch(friends, friendId) {
     }
     return currentFriend;
 }
+

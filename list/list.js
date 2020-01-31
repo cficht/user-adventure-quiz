@@ -2,8 +2,11 @@ import friendArray from '../data/data.js';
 import { getUser, setUser } from '../data/storage.js';
 import { updateUserText } from '../common/utils.js';
 
-const friendList = document.getElementById('friend-list');
 const pageTitle = document.getElementById('page-title');
+const friendList = document.getElementById('online-list');
+const friendListOffline = document.getElementById('offline-list');
+const mainInfoDiv = document.getElementById('main-info-div');
+mainInfoDiv.style.display = 'none';
 
 const user = getUser();
 const friends = friendArray;
@@ -20,13 +23,16 @@ friends.forEach((friend) => {
     friendURL.textContent = friend.name;
     friendURL.style.color = 'green';
     friendLi.appendChild(friendURL);
-    friendList.appendChild(friendLi);
+    
 
     const friendComplete = user.completed[friend.id];
     if (friendComplete) {
         friendURL.classList.add('disabled');
         friendURL.style.color = 'red';
         friendCompleteCount++;
+        friendListOffline.appendChild(friendLi);
+    } else {
+        friendList.appendChild(friendLi);
     }
     
 });
