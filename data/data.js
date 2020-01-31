@@ -1,6 +1,9 @@
+import { getUser } from '../data/storage.js';
+const user = getUser();
+
 const willy = {
     name: 'Uncle Willy',
-    id: 'will',
+    id: 'willy',
     detailimage: '',
     description: 'Your loving uncle. He has radical opinions about virtually everything and doesn\'t have the best reputation with the rest of your family.',
     choices: { send: {            
@@ -35,14 +38,14 @@ const highschool = {
     choices: { send: {            
         id: 'send',
         description: 'Send Craig a private message',
-        result: 'BLANK? Oh yeah, I remember you! You we\'re the one who drove thru a brick wall! That was crazy! Good times.',
+        result: `${user.name}? Oh yeah, I remember you! You we're the one who drove thru a brick wall! That was crazy! Good times.`,
         resultimage: '',
         health: 20,
         money: 20
     }, like: {
         id: 'like',
         description: 'Like a photo of Craig',
-        result: 'BLANK liked my post? Oh yeah, I think I went to high school with them.',
+        result: `${user.name} liked my post? Oh yeah, I think I went to high school with them.`,
         resultimage: '',
         health: 0,
         money: 0
@@ -93,14 +96,14 @@ const boss = {
     choices: { send: {            
         id: 'send',
         description: 'Send Ms. Ellerson a direct message',
-        result: 'Shouldn\t you be working?',
+        result: 'Shouldn\'t you be working?',
         resultimage: '',
         health: -30,
         money: -30
     }, like: {
         id: 'like',
         description: 'Like a photo of Ms. Ellerson',
-        result: 'Shouldn\t you be working?',
+        result: 'You know I\'m married, right?',
         resultimage: '',
         health: -30,
         money: -30

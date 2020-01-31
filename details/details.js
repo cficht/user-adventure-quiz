@@ -1,5 +1,5 @@
 import friendArray from '../data/data.js';
-import { getUser } from '../data/storage.js';
+import { getUser, setUser } from '../data/storage.js';
 import { updateUserText, friendMatch } from '../common/utils.js';
 
 const pageTitle = document.getElementById('page-title');
@@ -24,6 +24,10 @@ friendDescText.textContent = currentFriend.description;
 
 generateChoices(friendChoiceArray, friendChoiceForm);
 
+const choicesSubmitButton = document.createElement('input');
+choicesSubmitButton.type = 'submit';
+friendChoiceForm.appendChild(choicesSubmitButton);
+
 
 function generateChoices(friendChoiceArray, friendChoiceForm) {
     friendChoiceArray.forEach((choice) => {
@@ -36,8 +40,22 @@ function generateChoices(friendChoiceArray, friendChoiceForm) {
         choiceButton.value = choice.id;
         choiceLabel.appendChild(choiceButton);
         friendChoiceForm.appendChild(choiceLabel);
-    });
-    const choicesSubmitButton = document.createElement('input');
-    choicesSubmitButton.type = 'submit';
-    friendChoiceForm.appendChild(choicesSubmitButton);
+    });    
 }
+
+choicesSubmitButton.addEventListener('click', (e) => {
+
+    e.preventDefault();
+
+    const choiceFormResults = new FormData(friendChoiceForm);
+    const userChoiceId = (choiceFormResults.get('choices'));
+    const userChoice = currentFriend.choices[userChoiceId];
+    
+    friendChoiceForm.style.display = 'none';
+    friendDescText.textContent = userChoice.result;
+    user.health += userChoice.health;
+    user.money += userChoice.money;
+    user.completed[friendId] = true;
+    setUser(user);
+    setTimeout(() => window.location.assign('../list'), 3000);
+});

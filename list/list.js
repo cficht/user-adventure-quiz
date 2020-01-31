@@ -17,6 +17,18 @@ friends.forEach((friend) => {
     const friendURL = document.createElement('a');
     friendURL.href = `../details/?id=${friend.id}`;
     friendURL.textContent = friend.name;
+    friendURL.style.color = 'green';
     friendLi.appendChild(friendURL);
     friendList.appendChild(friendLi);
+
+    const friendComplete = user.completed[friend.id];
+
+    if (friendComplete) {
+        friendURL.classList.add('disabled');
+        friendURL.style.color = 'red';
+        friendURL.style.under
+        // console.log(user.completed[friend.id], friend.id);
+
+    }
 });
+
