@@ -7,6 +7,7 @@ const friendNameText = document.getElementById('friend-name-text');
 const friendImage = document.getElementById('friend-image');
 const friendDescText = document.getElementById('friend-description-text');
 const friendChoiceForm = document.getElementById('friend-choice-form');
+const friendChoiceDiv = document.getElementById('friend-choice-div');
 
 const user = getUser();
 const friends = friendArray;
@@ -51,6 +52,7 @@ friendChoiceForm.addEventListener('submit', (e) => {
     const userChoiceId = (choiceFormResults.get('choices'));
     const userChoice = currentFriend.choices[userChoiceId];
     
+    friendChoiceDiv.style.display = 'none';
     friendChoiceForm.style.display = 'none';
     friendImage.src = `../assets/${userChoice.resultimage}`;
     friendDescText.textContent = userChoice.result;
