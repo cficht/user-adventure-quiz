@@ -1,3 +1,4 @@
+// creates user object using login form data
 export function userStore(userForm) {
     const formToObject = new FormData(userForm);
 
@@ -5,7 +6,7 @@ export function userStore(userForm) {
         name: formToObject.get('name'),
         birthday: formToObject.get('birthday'),
         health: 100,
-        money: 100,
+        money: 0,
         completed: {
             willy: false,
             highschool: false,
@@ -16,6 +17,7 @@ export function userStore(userForm) {
     return userObject;
 }
 
+// updates DOM to reflect current user data
 export function updateUserText(user) {
     const userNameText = document.getElementById('user-name');
     const userBdayText = document.getElementById('user-bday');
@@ -32,6 +34,26 @@ export function updateUserText(user) {
     userLikesText.textContent = `${user.money}`;
 }
 
+// changes text color using difference in object data and corresponding DOM
+export function changeUserTextColor(user) {
+    const userFriendsText = document.getElementById('user-friends');
+    const userLikesText = document.getElementById('user-likes');
+
+    if (user.health < Number(userFriendsText.textContent)) {
+        userFriendsText.style.color = 'red';
+    }
+    else if (user.health > Number(userFriendsText.textContent)) {
+        userFriendsText.style.color = 'green';
+    }
+    if (user.money < Number(userLikesText.textContent)) {
+        userLikesText.style.color = 'red';
+    }
+    else if (user.money > Number(userLikesText.textContent)) {
+        userLikesText.style.color = 'green';
+    }
+}
+
+// converts date entered into astrology 
 function astrologicalSign(user) {
     const utcDate = new Date(user.birthday);
     const utcMonth = utcDate.getMonth();
@@ -74,10 +96,10 @@ function astrologicalSign(user) {
     else {
         astSign = 'Pisces';
     }
-
     return astSign;
 }
 
+// takes in array and id and returns object from array if there is a match and returns to the list page if there is no match
 export function friendMatch(friends, friendId) {
     let currentFriend;
     friends.forEach((friend) => {
@@ -92,6 +114,7 @@ export function friendMatch(friends, friendId) {
     return currentFriend;
 }
 
+// checks if login form is filled out
 export function checkForm(form) {
     const inputs = form.getElementsByTagName('input');
 

@@ -119,7 +119,7 @@ main {
     padding: 5px;
 }
 
-.main-div {
+#main-div {
     margin: 0 auto;
     width: 50%;
     padding: 10px;
