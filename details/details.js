@@ -8,6 +8,8 @@ const friendImage = document.getElementById('friend-image');
 const friendDescText = document.getElementById('friend-description-text');
 const friendChoiceForm = document.getElementById('friend-choice-form');
 const friendChoiceDiv = document.getElementById('friend-choice-div');
+let listLink = document.createElement('button');
+listLink.textContent = 'Back to Profile Page';
 
 const user = getUser();
 const friends = friendArray;
@@ -17,7 +19,11 @@ const searchParams = new URLSearchParams(window.location.search);
 const friendId = searchParams.get('id');
 
 updateUserText(user);
+
 currentFriend = friendMatch(friends, friendId);
+const friendComplete = user.completed[currentFriend.id];
+if (friendComplete) window.location.assign('../list');
+
 const friendChoiceArray = Object.values(currentFriend.choices);
 
 pageTitle.textContent = `Facestagrammer: ${currentFriend.name}`;
@@ -28,6 +34,7 @@ friendDescText.textContent = currentFriend.description;
 generateChoices(friendChoiceArray, friendChoiceForm);
 const choicesSubmitButton = document.createElement('input');
 choicesSubmitButton.type = 'submit';
+choicesSubmitButton.id = 'choice-submit';
 friendChoiceForm.appendChild(choicesSubmitButton);
 
 function generateChoices(friendChoiceArray, friendChoiceForm) {
@@ -52,7 +59,7 @@ friendChoiceForm.addEventListener('submit', (e) => {
     const userChoiceId = (choiceFormResults.get('choices'));
     const userChoice = currentFriend.choices[userChoiceId];
     
-    friendChoiceDiv.style.display = 'none';
+    // friendChoiceDiv.style.display = 'none';
     friendChoiceForm.style.display = 'none';
     friendImage.src = `../assets/${userChoice.resultimage}`;
     friendDescText.textContent = userChoice.result;
@@ -60,5 +67,12 @@ friendChoiceForm.addEventListener('submit', (e) => {
     user.money += userChoice.money;
     user.completed[friendId] = true;
     setUser(user);
-    setTimeout(() => window.location.assign('../list'), 3000);
+
+
+    friendChoiceDiv.appendChild(listLink);
+});
+
+listLink.addEventListener('click', () => {
+    window.location.assign('../list');
+
 });

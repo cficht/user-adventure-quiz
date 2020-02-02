@@ -5,8 +5,8 @@ import { updateUserText } from '../common/utils.js';
 const pageTitle = document.getElementById('page-title');
 const friendList = document.getElementById('online-list');
 const friendListOffline = document.getElementById('offline-list');
-const mainInfoDiv = document.getElementById('main-info-div');
-mainInfoDiv.style.display = 'none';
+// const mainInfoDiv = document.getElementById('main-info-div');
+// mainInfoDiv.style.display = 'none';
 
 const user = getUser();
 const friends = friendArray;

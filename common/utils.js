@@ -25,11 +25,11 @@ export function updateUserText(user) {
 
     const userSignText = astrologicalSign(user);
 
-    userNameText.textContent = `Name: ${user.name}`;
-    userBdayText.textContent = `Sign: ${userSignText} `;
+    userNameText.textContent = `${user.name}`;
+    userBdayText.textContent = `${userSignText} `;
     userBdayImage.src = `../assets/${userSignText}.png`;
-    userFriendsText.textContent = `Friends: ${user.health}`;
-    userLikesText.textContent = `Likes: ${user.money}`;
+    userFriendsText.textContent = `${user.health}`;
+    userLikesText.textContent = `${user.money}`;
 }
 
 function astrologicalSign(user) {
@@ -92,3 +92,13 @@ export function friendMatch(friends, friendId) {
     return currentFriend;
 }
 
+export function checkForm(form) {
+    const inputs = form.getElementsByTagName('input');
+
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value === '' && inputs[i].type !== 'submit'){    
+            return false;
+        }
+    }
+    return true;
+}
